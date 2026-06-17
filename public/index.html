@@ -11,31 +11,35 @@
     <meta property="og:image" content="/assets/taxi25-denia-road.jpg" />
     <style>
       :root {
-        --ink: #111114;
-        --muted: #66666f;
-        --line: rgba(17,17,20,.12);
-        --paper: #fbfaf6;
-        --card: #ffffff;
-        --taxi: #ffd231;
-        --dark: #151515;
-        --green: #128c4a;
+        --ink: #17140d;
+        --muted: #6f6758;
+        --line: rgba(23,20,13,.12);
+        --paper: #fbf6ea;
+        --paper-2: #f2eadb;
+        --card: rgba(255,253,248,.82);
+        --taxi: #f6c62f;
+        --dark: #18140d;
+        --green: #13834a;
+        --ease-out: cubic-bezier(.23, 1, .32, 1);
       }
       * { box-sizing: border-box; }
       html { scroll-behavior: smooth; }
       body {
         margin: 0;
-        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
         color: var(--ink);
-        background: var(--paper);
+        background:
+          radial-gradient(circle at 86% 8%, rgba(246,198,47,.22), transparent 28rem),
+          linear-gradient(180deg, var(--paper), var(--paper-2));
       }
       a { color: inherit; }
-      .wrap { width: min(1120px, calc(100% - 36px)); margin: 0 auto; }
+      .wrap { width: min(1160px, calc(100% - 36px)); margin: 0 auto; }
       header {
         position: sticky;
         top: 0;
         z-index: 5;
         backdrop-filter: blur(18px);
-        background: rgba(251,250,246,.86);
+        background: color-mix(in srgb, var(--paper) 86%, white);
         border-bottom: 1px solid var(--line);
       }
       nav {
@@ -51,56 +55,59 @@
         height: 42px;
         display: grid;
         place-items: center;
-        border-radius: 14px;
+        border-radius: 13px;
         color: var(--dark);
         background: var(--taxi);
-        box-shadow: 0 10px 24px rgba(0,0,0,.08);
+        box-shadow: 0 10px 24px rgba(80,55,0,.16), inset 0 -2px 0 rgba(0,0,0,.12);
       }
       .nav-right { display: flex; align-items: center; gap: 16px; }
       .lang { display: flex; gap: 6px; padding: 4px; border: 1px solid var(--line); border-radius: 999px; background: rgba(255,255,255,.68); }
-      .lang button { border: 0; background: transparent; border-radius: 999px; padding: 7px 10px; cursor: pointer; color: var(--muted); font-weight: 750; }
+      .lang button { border: 0; background: transparent; border-radius: 999px; padding: 7px 10px; cursor: pointer; color: var(--muted); font-weight: 750; transition: background .16s var(--ease-out), color .16s var(--ease-out), transform .12s var(--ease-out); }
       .lang button.active { background: var(--dark); color: white; }
-      .call-small { color: var(--dark); background: var(--taxi); padding: 11px 15px; border-radius: 999px; font-weight: 850; text-decoration: none; }
-      .hero { padding: 78px 0 44px; display: grid; grid-template-columns: 1.02fr .98fr; gap: 48px; align-items: center; }
-      .kicker { display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border: 1px solid var(--line); border-radius: 999px; font-size: 14px; color: var(--muted); background: rgba(255,255,255,.62); }
+      .lang button:active, .button:active, .call-small:active { transform: scale(.98); }
+      .call-small { color: var(--dark); background: var(--taxi); padding: 11px 15px; border-radius: 999px; font-weight: 850; text-decoration: none; box-shadow: 0 8px 22px rgba(80,55,0,.12); }
+      .hero { padding: clamp(24px, 4vw, 44px) 0 34px; display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(28px, 5vw, 64px); align-items: start; }
+      .kicker { display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border: 1px solid var(--line); border-radius: 999px; font-size: 14px; color: var(--muted); background: rgba(255,255,255,.62); box-shadow: 0 8px 24px rgba(0,0,0,.04); }
       .dot { width: 8px; height: 8px; border-radius: 999px; background: var(--green); box-shadow: 0 0 0 5px rgba(18,140,74,.12); }
-      h1 { margin: 22px 0 18px; font-size: clamp(44px, 7.6vw, 88px); line-height: .92; letter-spacing: -.075em; }
-      .lead { max-width: 640px; color: var(--muted); font-size: clamp(18px, 2vw, 22px); line-height: 1.48; margin: 0 0 30px; }
+      h1 { margin: 16px 0 12px; max-width: 13ch; font-size: clamp(40px, 5.2vw, 62px); line-height: .93; letter-spacing: -.07em; text-wrap: balance; }
+      .lead { max-width: 590px; color: var(--muted); font-size: clamp(17px, 1.65vw, 20px); line-height: 1.43; margin: 0 0 20px; text-wrap: pretty; }
       .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 28px; }
-      .button { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 54px; padding: 0 22px; border-radius: 16px; text-decoration: none; font-weight: 850; border: 1px solid transparent; }
-      .button.primary { background: var(--dark); color: white; }
-      .button.whatsapp { background: var(--green); color: white; }
-      .button.secondary { background: white; border-color: var(--line); color: var(--ink); }
-      .facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; max-width: 650px; }
-      .fact { background: rgba(255,255,255,.74); border: 1px solid var(--line); border-radius: 18px; padding: 16px; }
+      .button { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 54px; padding: 0 22px; border-radius: 16px; text-decoration: none; font-weight: 850; border: 1px solid transparent; transition: transform .12s var(--ease-out), box-shadow .18s var(--ease-out), background .18s var(--ease-out); }
+      .button.primary { background: var(--dark); color: white; box-shadow: 0 14px 30px rgba(24,20,13,.18); }
+      .button.whatsapp { background: var(--green); color: white; box-shadow: 0 14px 30px rgba(19,131,74,.18); }
+      .button.secondary { background: rgba(255,255,255,.78); border-color: var(--line); color: var(--ink); }
+      .button:hover { transform: translateY(-1px); }
+      .facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; max-width: 650px; margin-top: 2px; }
+      .fact { background: rgba(255,255,255,.64); border: 1px solid var(--line); border-radius: 18px; padding: 16px; backdrop-filter: blur(10px); }
       .fact strong { display: block; font-size: 15px; margin-bottom: 4px; }
       .fact span { color: var(--muted); font-size: 14px; }
-      .photo-card { position: relative; min-height: 600px; border-radius: 34px; overflow: hidden; background: #ddd; box-shadow: 0 28px 80px rgba(0,0,0,.16); }
-      .photo-card img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
-      .photo-card:after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.03), rgba(0,0,0,.58)); }
-      .float-card { position: absolute; left: 22px; right: 22px; bottom: 22px; z-index: 2; color: white; padding: 20px; border-radius: 24px; background: rgba(16,16,21,.48); border: 1px solid rgba(255,255,255,.18); backdrop-filter: blur(14px); }
+      .photo-card { position: relative; min-height: min(520px, calc(100vh - 128px)); border-radius: 38px; overflow: hidden; background: #ddd; box-shadow: 0 30px 90px rgba(56,42,18,.22); transform: rotate(.4deg); }
+      .photo-card img { width: 100%; height: 100%; object-fit: cover; object-position: 34% 58%; position: absolute; inset: 0; }
+      .photo-card:after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,.56)); }
+      .float-card { position: absolute; left: 18px; right: 18px; bottom: 18px; z-index: 2; color: white; padding: 18px; border-radius: 22px; background: rgba(16,14,10,.54); border: 1px solid rgba(255,255,255,.18); backdrop-filter: blur(14px); }
       .float-card b { display: block; font-size: 24px; letter-spacing: -.04em; margin-bottom: 6px; }
       .float-card span { color: rgba(255,255,255,.8); }
-      section { padding: 62px 0; }
+      section { padding: clamp(46px, 6vw, 76px) 0; }
       .section-title { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 22px; }
       h2 { margin: 0; font-size: clamp(32px, 4vw, 54px); letter-spacing: -.06em; line-height: .98; }
       .section-title p { margin: 0; color: var(--muted); max-width: 470px; line-height: 1.5; }
       .services { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
-      .service { background: var(--card); border: 1px solid var(--line); border-radius: 24px; padding: 22px; min-height: 170px; box-shadow: 0 12px 32px rgba(0,0,0,.04); }
-      .service .icon { font-size: 27px; margin-bottom: 23px; }
+      .service { background: var(--card); border: 1px solid var(--line); border-radius: 24px; padding: 22px; min-height: 170px; box-shadow: 0 12px 32px rgba(56,42,18,.05); backdrop-filter: blur(10px); }
+      .service .icon { font-size: 25px; margin-bottom: 24px; filter: saturate(.9); }
       .service h3 { margin: 0 0 8px; font-size: 19px; letter-spacing: -.03em; }
       .service p { margin: 0; color: var(--muted); line-height: 1.5; font-size: 15px; }
-      .gallery { display: grid; grid-template-columns: 1.1fr .9fr .9fr; gap: 14px; }
-      .gallery figure { margin: 0; border-radius: 26px; overflow: hidden; min-height: 270px; position: relative; background: #ddd; }
-      .gallery figure:first-child { min-height: 420px; }
-      .gallery img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; transition: transform .5s ease; }
-      .gallery figure:hover img { transform: scale(1.035); }
+      .gallery { display: grid; grid-template-columns: 1.08fr .92fr .82fr; gap: 14px; }
+      .gallery figure { margin: 0; border-radius: 28px; overflow: hidden; min-height: 260px; position: relative; background: #ddd; box-shadow: 0 18px 48px rgba(56,42,18,.08); }
+      .gallery figure:first-child { grid-row: span 2; min-height: 548px; }
+      .gallery figure:nth-child(2) { grid-column: span 2; }
+      .gallery img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; transition: transform .5s var(--ease-out); }
+      .gallery figure:hover img { transform: scale(1.025); }
       .contact { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; align-items: stretch; }
-      .contact-card, .map-card { background: var(--card); border: 1px solid var(--line); border-radius: 30px; padding: 30px; box-shadow: 0 12px 36px rgba(0,0,0,.05); }
+      .contact-card, .map-card { background: var(--card); border: 1px solid var(--line); border-radius: 30px; padding: 30px; box-shadow: 0 16px 44px rgba(56,42,18,.07); backdrop-filter: blur(10px); }
       .phone-big { display: block; font-size: clamp(38px, 5vw, 66px); line-height: .95; letter-spacing: -.07em; font-weight: 900; text-decoration: none; margin: 18px 0 20px; }
       .contact-list { display: grid; gap: 13px; margin: 26px 0 0; color: var(--muted); }
       .contact-list div { padding-top: 13px; border-top: 1px solid var(--line); }
-      .map-card { display: grid; align-content: space-between; min-height: 360px; background: linear-gradient(135deg, #151515, #2d2d2d); color: white; overflow: hidden; position: relative; }
+      .map-card { display: grid; align-content: space-between; min-height: 360px; background: linear-gradient(135deg, #18140d, #332818); color: white; overflow: hidden; position: relative; }
       .map-card:before { content: ""; position: absolute; inset: auto -30% -40% 20%; height: 320px; background: var(--taxi); transform: rotate(-16deg); border-radius: 999px; opacity: .95; }
       .map-card > * { position: relative; z-index: 1; }
       .map-card p { color: rgba(255,255,255,.72); max-width: 370px; line-height: 1.5; }
@@ -109,10 +116,10 @@
       [data-i18n] { transition: opacity .15s ease; }
       @media (max-width: 880px) {
         .hero, .contact { grid-template-columns: 1fr; }
-        .photo-card { min-height: 430px; }
+        .photo-card { min-height: 430px; transform: none; }
         .services { grid-template-columns: repeat(2, 1fr); }
         .gallery { grid-template-columns: 1fr; }
-        .gallery figure, .gallery figure:first-child { min-height: 260px; }
+        .gallery figure, .gallery figure:first-child, .gallery figure:nth-child(2) { grid-column: auto; grid-row: auto; min-height: 260px; }
       }
       @media (max-width: 620px) {
         .wrap { width: min(100% - 24px, 1120px); }
@@ -149,12 +156,12 @@
       <section class="hero wrap">
         <div>
           <span class="kicker"><span class="dot"></span><span data-i18n="kicker">Taxi local en Dénia, Alicante</span></span>
-          <h1 data-i18n="hero.title">Taxi en Dénia, cuando lo necesitas.</h1>
-          <p class="lead" data-i18n="hero.lead">Trayectos por la ciudad, recogidas en el puerto, traslados al aeropuerto y viajes por la Marina Alta. Llama a Taxi 25 Denia y reserva directamente.</p>
+          <h1 data-i18n="hero.title">Taxi 25 Denia. Directo y local.</h1>
+          <p class="lead" data-i18n="hero.lead">Para moverte por Dénia, la Marina Alta, el puerto y los aeropuertos de Alicante o Valencia. Llama o escribe por WhatsApp y reserva sin vueltas.</p>
           <div class="actions" aria-label="Contacto">
             <a class="button primary" href="tel:+34615626618" data-i18n="cta.call">Llamar al 615 62 66 18</a>
             <a class="button whatsapp" href="https://wa.me/34615626618" data-i18n="cta.whatsapp">WhatsApp</a>
-            <a class="button secondary" href="https://www.google.com/maps/search/?api=1&query=Calle%20Candida%20Carbonell%205%2C%2003700%20Denia%2C%20Alicante" target="_blank" rel="noreferrer" data-i18n="cta.map">Ver ubicación</a>
+            <a class="button secondary" href="https://www.google.com/maps/search/?api=1&query=Calle%20Candida%20Carbonell%205%2C%2003700%20Denia%2C%20Alicante" target="_blank" rel="noreferrer" data-i18n="cta.map">Abrir mapa</a>
           </div>
           <div class="facts" aria-label="Datos rápidos">
             <div class="fact"><strong data-i18n="fact.phone">Teléfono</strong><span>615 62 66 18</span></div>
@@ -165,8 +172,8 @@
         <div class="photo-card" aria-label="Taxi 25 Denia">
           <img src="/assets/taxi25-denia-road.jpg" alt="Taxi 25 Denia en la Marina Alta" />
           <div class="float-card">
-            <b data-i18n="photo.title">Servicio directo</b>
-            <span data-i18n="photo.text">Para moverte por Dénia, el puerto, hoteles, restaurantes, playas y aeropuertos.</span>
+            <b data-i18n="photo.title">Sin centralita. Sin vueltas.</b>
+            <span data-i18n="photo.text">Un taxi local para recogidas rápidas, traslados con hora y viajes al aeropuerto.</span>
           </div>
         </div>
       </section>
@@ -174,28 +181,28 @@
       <section id="services" class="wrap">
         <div class="section-title">
           <h2 data-i18n="services.title">Servicios</h2>
-          <p data-i18n="services.intro">Un taxi práctico para viajes del día a día y traslados con hora. Llama, indica dónde estás y adónde vas.</p>
+          <p data-i18n="services.intro">Lo importante está claro: dónde estás, adónde vas y a qué hora hay que estar allí.</p>
         </div>
         <div class="services">
           <article class="service">
             <div class="icon">🏖️</div>
             <h3 data-i18n="service.one.title">Ciudad y playas</h3>
-            <p data-i18n="service.one.text">Trayectos por Dénia, Las Marinas, Las Rotas, el centro y restaurantes cercanos.</p>
+            <p data-i18n="service.one.text">Centro, Las Marinas, Las Rotas, hoteles, restaurantes y playas.</p>
           </article>
           <article class="service">
             <div class="icon">🛥️</div>
             <h3 data-i18n="service.two.title">Puerto y ferry</h3>
-            <p data-i18n="service.two.text">Recogidas y salidas desde el puerto, la marina y la zona del ferry.</p>
+            <p data-i18n="service.two.text">Llegadas, salidas y conexiones con el ferry o la marina.</p>
           </article>
           <article class="service">
             <div class="icon">✈️</div>
             <h3 data-i18n="service.three.title">Aeropuertos</h3>
-            <p data-i18n="service.three.text">Traslados a Alicante o Valencia con reserva previa.</p>
+            <p data-i18n="service.three.text">Alicante y Valencia con hora cerrada y margen suficiente.</p>
           </article>
           <article class="service">
             <div class="icon">🌙</div>
             <h3 data-i18n="service.four.title">Noches y eventos</h3>
-            <p data-i18n="service.four.text">Cenas, hoteles, fiestas y vueltas a casa sin complicaciones.</p>
+            <p data-i18n="service.four.text">Cenas, hoteles, fiestas y vuelta a casa cuando toca.</p>
           </article>
         </div>
       </section>
@@ -212,24 +219,24 @@
 
       <section id="contact" class="wrap contact">
         <div class="contact-card">
-          <span class="kicker"><span class="dot"></span><span data-i18n="contact.kicker">Reserva por teléfono o WhatsApp</span></span>
+          <span class="kicker"><span class="dot"></span><span data-i18n="contact.kicker">Llama o manda WhatsApp</span></span>
           <a class="phone-big" href="tel:+34615626618">615 62 66 18</a>
           <div class="actions">
             <a class="button primary" href="tel:+34615626618" data-i18n="contact.call">Llamar ahora</a>
-            <a class="button whatsapp" href="https://wa.me/34615626618" data-i18n="contact.whatsapp">Enviar WhatsApp</a>
+            <a class="button whatsapp" href="https://wa.me/34615626618" data-i18n="contact.whatsapp">WhatsApp</a>
           </div>
           <div class="contact-list">
             <div><strong>Taxi 25 Denia</strong></div>
             <div>Calle Cándida Carbonell, 5, 03700 Dénia, Alicante</div>
-            <div data-i18n="contact.area">Servicio en Dénia, Marina Alta, aeropuerto de Alicante y aeropuerto de Valencia.</div>
+            <div data-i18n="contact.area">Dénia, Marina Alta y traslados a los aeropuertos de Alicante y Valencia.</div>
           </div>
         </div>
         <div class="map-card">
           <div>
-            <h2 data-i18n="map.title">En el centro de Dénia.</h2>
-            <p data-i18n="map.text">Cerca de Calle Campos, el puerto, hoteles y los puntos habituales de recogida.</p>
+            <h2 data-i18n="map.title">Base en Dénia.</h2>
+            <p data-i18n="map.text">Cerca del centro, el puerto, hoteles y puntos habituales de recogida.</p>
           </div>
-          <a class="button secondary" href="https://www.google.com/maps/search/?api=1&query=Calle%20Candida%20Carbonell%205%2C%2003700%20Denia%2C%20Alicante" target="_blank" rel="noreferrer" data-i18n="map.cta">Abrir en Google Maps</a>
+          <a class="button secondary" href="https://www.google.com/maps/search/?api=1&query=Calle%20Candida%20Carbonell%205%2C%2003700%20Denia%2C%20Alicante" target="_blank" rel="noreferrer" data-i18n="map.cta">Abrir mapa</a>
         </div>
       </section>
     </main>
@@ -245,100 +252,100 @@
         es: {
           'nav.call': 'Llamar',
           kicker: 'Taxi local en Dénia, Alicante',
-          'hero.title': 'Taxi en Dénia, cuando lo necesitas.',
-          'hero.lead': 'Trayectos por la ciudad, recogidas en el puerto, traslados al aeropuerto y viajes por la Marina Alta. Llama a Taxi 25 Denia y reserva directamente.',
+          'hero.title': 'Taxi 25 Denia. Directo y local.',
+          'hero.lead': 'Para moverte por Dénia, la Marina Alta, el puerto y los aeropuertos de Alicante o Valencia. Llama o escribe por WhatsApp y reserva sin vueltas.',
           'cta.call': 'Llamar al 615 62 66 18',
           'cta.whatsapp': 'WhatsApp',
-          'cta.map': 'Ver ubicación',
+          'cta.map': 'Abrir mapa',
           'fact.phone': 'Teléfono',
           'fact.area': 'Zona',
           'fact.areaValue': 'Dénia y Marina Alta',
           'fact.address': 'Dirección',
-          'photo.title': 'Servicio directo',
+          'photo.title': 'Sin centralita. Sin vueltas.',
           'photo.text': 'Para moverte por Dénia, el puerto, hoteles, restaurantes, playas y traslados al aeropuerto.',
           'services.title': 'Servicios',
-          'services.intro': 'Un taxi práctico para viajes del día a día y traslados con hora. Llama, indica dónde estás y adónde vas.',
+          'services.intro': 'Lo importante está claro: dónde estás, adónde vas y a qué hora hay que estar allí.',
           'service.one.title': 'Ciudad y playas',
-          'service.one.text': 'Trayectos por Dénia, Las Marinas, Las Rotas, el centro y restaurantes cercanos.',
+          'service.one.text': 'Centro, Las Marinas, Las Rotas, hoteles, restaurantes y playas.',
           'service.two.title': 'Puerto y ferry',
-          'service.two.text': 'Recogidas y salidas desde el puerto, la marina y la zona del ferry.',
+          'service.two.text': 'Llegadas, salidas y conexiones con el ferry o la marina.',
           'service.three.title': 'Aeropuertos',
-          'service.three.text': 'Traslados a Alicante o Valencia con reserva previa.',
+          'service.three.text': 'Alicante y Valencia con hora cerrada y margen suficiente.',
           'service.four.title': 'Noches y eventos',
-          'service.four.text': 'Cenas, hoteles, fiestas y vueltas a casa sin complicaciones.',
-          'contact.kicker': 'Reserva por teléfono o WhatsApp',
+          'service.four.text': 'Cenas, hoteles, fiestas y vuelta a casa cuando toca.',
+          'contact.kicker': 'Llama o manda WhatsApp',
           'contact.call': 'Llamar ahora',
-          'contact.whatsapp': 'Enviar WhatsApp',
-          'contact.area': 'Servicio en Dénia, Marina Alta, aeropuerto de Alicante y aeropuerto de Valencia.',
-          'map.title': 'En el centro de Dénia.',
-          'map.text': 'Cerca de Calle Campos, el puerto, hoteles y los puntos habituales de recogida.',
-          'map.cta': 'Abrir en Google Maps',
+          'contact.whatsapp': 'WhatsApp',
+          'contact.area': 'Dénia, Marina Alta y traslados a los aeropuertos de Alicante y Valencia.',
+          'map.title': 'Base en Dénia.',
+          'map.text': 'Cerca del centro, el puerto, hoteles y puntos habituales de recogida.',
+          'map.cta': 'Abrir mapa',
           'footer.credit': 'Fotos: Taxi 25 Denia y Wikimedia Commons.'
         },
         en: {
           'nav.call': 'Call',
           kicker: 'Local taxi in Dénia, Alicante',
-          'hero.title': 'Taxi in Dénia, when you need it.',
-          'hero.lead': 'Town rides, port pickups, airport transfers and trips around the Marina Alta. Call Taxi 25 Denia and book directly.',
+          'hero.title': 'Taxi 25 Denia. Local and direct.',
+          'hero.lead': 'For Dénia, the Marina Alta, the port and airport transfers to Alicante or Valencia. Call or WhatsApp and book without fuss.',
           'cta.call': 'Call 615 62 66 18',
           'cta.whatsapp': 'WhatsApp',
-          'cta.map': 'View location',
+          'cta.map': 'Open map',
           'fact.phone': 'Phone',
           'fact.area': 'Area',
           'fact.areaValue': 'Dénia and Marina Alta',
           'fact.address': 'Address',
-          'photo.title': 'Direct service',
-          'photo.text': 'For rides around Dénia, the port, hotels, restaurants, beaches and airport transfers.',
+          'photo.title': 'No call centre. No fuss.',
+          'photo.text': 'A local taxi for quick pickups, timed rides and airport transfers.',
           'services.title': 'Services',
-          'services.intro': 'A practical taxi for daily rides and timed transfers. Call, say where you are and where you need to go.',
+          'services.intro': 'The important part is simple: where you are, where you are going, and when you need to arrive.',
           'service.one.title': 'Town and beaches',
-          'service.one.text': 'Trips around Dénia, Las Marinas, Las Rotas, the centre and nearby restaurants.',
+          'service.one.text': 'Town centre, Las Marinas, Las Rotas, hotels, restaurants and beaches.',
           'service.two.title': 'Port and ferry',
-          'service.two.text': 'Pickups and drop-offs at the port, marina and ferry area.',
+          'service.two.text': 'Arrivals, departures and connections with the ferry or marina.',
           'service.three.title': 'Airports',
-          'service.three.text': 'Pre-booked transfers to Alicante or Valencia airport.',
+          'service.three.text': 'Alicante and Valencia with a set pickup time and enough margin.',
           'service.four.title': 'Evenings and events',
-          'service.four.text': 'Dinners, hotels, parties and a simple ride home.',
-          'contact.kicker': 'Book by phone or WhatsApp',
+          'service.four.text': 'Dinners, hotels, parties and the ride home when it is time.',
+          'contact.kicker': 'Call or send WhatsApp',
           'contact.call': 'Call now',
-          'contact.whatsapp': 'Send WhatsApp',
-          'contact.area': 'Service in Dénia, Marina Alta, Alicante Airport and Valencia Airport.',
-          'map.title': 'In central Dénia.',
-          'map.text': 'Close to Calle Campos, the port, hotels and regular pickup points.',
-          'map.cta': 'Open in Google Maps',
+          'contact.whatsapp': 'WhatsApp',
+          'contact.area': 'Dénia, Marina Alta and transfers to Alicante and Valencia airports.',
+          'map.title': 'Based in Dénia.',
+          'map.text': 'Close to the centre, the port, hotels and regular pickup points.',
+          'map.cta': 'Open map',
           'footer.credit': 'Photos: Taxi 25 Denia and Wikimedia Commons.'
         },
         de: {
           'nav.call': 'Anrufen',
           kicker: 'Lokales Taxi in Dénia, Alicante',
-          'hero.title': 'Taxi in Dénia, wenn Sie eins brauchen.',
-          'hero.lead': 'Fahrten in der Stadt, Abholung am Hafen, Flughafentransfers und Strecken in der Marina Alta. Rufen Sie Taxi 25 Denia direkt an.',
+          'hero.title': 'Taxi 25 Denia. Lokal und direkt.',
+          'hero.lead': 'Für Dénia, die Marina Alta, den Hafen und Flughafentransfers nach Alicante oder Valencia. Anrufen oder per WhatsApp buchen.',
           'cta.call': '615 62 66 18 anrufen',
           'cta.whatsapp': 'WhatsApp',
-          'cta.map': 'Standort ansehen',
+          'cta.map': 'Karte öffnen',
           'fact.phone': 'Telefon',
           'fact.area': 'Gebiet',
           'fact.areaValue': 'Dénia und Marina Alta',
           'fact.address': 'Adresse',
-          'photo.title': 'Direkter Service',
-          'photo.text': 'Für Fahrten in Dénia, zum Hafen, zu Hotels, Restaurants, Stränden und Flughafentransfers.',
+          'photo.title': 'Direkt buchen. Ohne Umwege.',
+          'photo.text': 'Ein lokales Taxi für schnelle Abholungen, Fahrten mit Uhrzeit und Flughafentransfers.',
           'services.title': 'Leistungen',
-          'services.intro': 'Ein praktisches Taxi für Alltagsfahrten und geplante Transfers. Anrufen, Standort nennen, Ziel nennen.',
+          'services.intro': 'Wichtig sind nur drei Dinge: wo Sie sind, wohin Sie möchten und wann Sie ankommen müssen.',
           'service.one.title': 'Stadt und Strände',
-          'service.one.text': 'Fahrten in Dénia, Las Marinas, Las Rotas, im Zentrum und zu Restaurants in der Nähe.',
+          'service.one.text': 'Zentrum, Las Marinas, Las Rotas, Hotels, Restaurants und Strände.',
           'service.two.title': 'Hafen und Fähre',
-          'service.two.text': 'Abholung und Fahrten am Hafen, in der Marina und im Fährbereich.',
+          'service.two.text': 'Ankunft, Abfahrt und Verbindungen zur Fähre oder Marina.',
           'service.three.title': 'Flughäfen',
-          'service.three.text': 'Transfers zum Flughafen Alicante oder Valencia mit Vorbestellung.',
+          'service.three.text': 'Alicante und Valencia mit fester Abholzeit und genug Puffer.',
           'service.four.title': 'Abends und Events',
-          'service.four.text': 'Abendessen, Hotels, Feiern und eine einfache Heimfahrt.',
-          'contact.kicker': 'Buchung per Telefon oder WhatsApp',
+          'service.four.text': 'Abendessen, Hotels, Feiern und die Heimfahrt, wenn es Zeit ist.',
+          'contact.kicker': 'Anrufen oder WhatsApp senden',
           'contact.call': 'Jetzt anrufen',
-          'contact.whatsapp': 'WhatsApp senden',
-          'contact.area': 'Service in Dénia, Marina Alta, Flughafen Alicante und Flughafen Valencia.',
-          'map.title': 'Im Zentrum von Dénia.',
-          'map.text': 'Nahe Calle Campos, Hafen, Hotels und den üblichen Abholpunkten.',
-          'map.cta': 'In Google Maps öffnen',
+          'contact.whatsapp': 'WhatsApp',
+          'contact.area': 'Dénia, Marina Alta und Transfers zu den Flughäfen Alicante und Valencia.',
+          'map.title': 'In Dénia zuhause.',
+          'map.text': 'Nahe Zentrum, Hafen, Hotels und üblichen Abholpunkten.',
+          'map.cta': 'Karte öffnen',
           'footer.credit': 'Fotos: Taxi 25 Denia und Wikimedia Commons.'
         }
       };
