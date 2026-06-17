@@ -3,12 +3,31 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Taxi 25 Denia | Taxi local en Dénia</title>
-    <meta name="description" content="Taxi 25 Denia. Servicio local de taxi en Dénia, Alicante. Llama o escribe por WhatsApp al 615 62 66 18 para trayectos urbanos, puerto y traslados al aeropuerto." />
-    <meta property="og:title" content="Taxi 25 Denia" />
-    <meta property="og:description" content="Taxi local en Dénia. Llama o WhatsApp: 615 62 66 18." />
+    <title>Taxi 25 Denia | Taxi local en Dénia | 615 62 66 18</title>
+    <meta name="description" content="Taxi local en Dénia, Alicante. Llama o escribe por WhatsApp al 615 62 66 18: ciudad, puerto, playas de la Marina Alta y traslados a los aeropuertos de Alicante y Valencia." />
+    <link rel="canonical" href="https://taxi25-denia.vercel.app/" />
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/assets/logo.svg" />
+    <link rel="alternate" hreflang="es" href="https://taxi25-denia.vercel.app/" />
+    <link rel="alternate" hreflang="en" href="https://taxi25-denia.vercel.app/?lang=en" />
+    <link rel="alternate" hreflang="de" href="https://taxi25-denia.vercel.app/?lang=de" />
+    <link rel="alternate" hreflang="x-default" href="https://taxi25-denia.vercel.app/" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#f6c62f" />
+    <meta property="og:site_name" content="Taxi 25 Denia" />
+    <meta property="og:title" content="Taxi 25 Denia | Taxi local en Dénia" />
+    <meta property="og:description" content="Taxi local en Dénia. Llama o WhatsApp al 615 62 66 18 para ciudad, puerto, Marina Alta y aeropuertos." />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="/assets/taxi25-denia-road.jpg" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:locale:alternate" content="en_GB" />
+    <meta property="og:locale:alternate" content="de_DE" />
+    <meta property="og:url" content="https://taxi25-denia.vercel.app/" />
+    <meta property="og:image" content="https://taxi25-denia.vercel.app/assets/taxi25-denia-road.jpg" />
+    <meta property="og:image:alt" content="Taxi 25 Denia en la Marina Alta" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Taxi 25 Denia | Taxi local en Dénia" />
+    <meta name="twitter:description" content="Taxi local en Dénia. Llama o WhatsApp: 615 62 66 18." />
+    <meta name="twitter:image" content="https://taxi25-denia.vercel.app/assets/taxi25-denia-road.jpg" />
     <style>
       :root {
         --ink: #17140d;
@@ -51,15 +70,14 @@
       }
       .brand { display: flex; align-items: center; gap: 12px; font-weight: 850; letter-spacing: -.03em; text-decoration: none; }
       .mark {
-        width: 42px;
-        height: 42px;
-        display: grid;
-        place-items: center;
-        border-radius: 13px;
-        color: var(--dark);
-        background: var(--taxi);
+        width: 46px;
+        height: 46px;
+        display: block;
+        border-radius: 14px;
         box-shadow: 0 10px 24px rgba(80,55,0,.16), inset 0 -2px 0 rgba(0,0,0,.12);
       }
+      .brand-word { display: grid; gap: 1px; line-height: 1; }
+      .brand-word small { color: var(--muted); font-size: 12px; font-weight: 750; letter-spacing: .02em; }
       .nav-right { display: flex; align-items: center; gap: 16px; }
       .lang { display: flex; gap: 6px; padding: 4px; border: 1px solid var(--line); border-radius: 999px; background: rgba(255,255,255,.68); }
       .lang button { border: 0; background: transparent; border-radius: 999px; padding: 7px 10px; cursor: pointer; color: var(--muted); font-weight: 750; transition: background .16s var(--ease-out), color .16s var(--ease-out), transform .12s var(--ease-out); }
@@ -102,6 +120,11 @@
       .gallery figure:nth-child(2) { grid-column: span 2; }
       .gallery img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; transition: transform .5s var(--ease-out); }
       .gallery figure:hover img { transform: scale(1.025); }
+      .seo-note { margin-top: 18px; color: var(--muted); font-size: 15px; line-height: 1.55; max-width: 70ch; }
+      .faq { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+      .faq article { background: rgba(255,255,255,.58); border: 1px solid var(--line); border-radius: 22px; padding: 20px; }
+      .faq h3 { margin: 0 0 8px; font-size: 18px; letter-spacing: -.03em; }
+      .faq p { margin: 0; color: var(--muted); line-height: 1.5; font-size: 15px; }
       .contact { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; align-items: stretch; }
       .contact-card, .map-card { background: var(--card); border: 1px solid var(--line); border-radius: 30px; padding: 30px; box-shadow: 0 16px 44px rgba(56,42,18,.07); backdrop-filter: blur(10px); }
       .phone-big { display: block; font-size: clamp(38px, 5vw, 66px); line-height: .95; letter-spacing: -.07em; font-weight: 900; text-decoration: none; margin: 18px 0 20px; }
@@ -117,7 +140,7 @@
       @media (max-width: 880px) {
         .hero, .contact { grid-template-columns: 1fr; }
         .photo-card { min-height: 430px; transform: none; }
-        .services { grid-template-columns: repeat(2, 1fr); }
+        .services, .faq { grid-template-columns: repeat(2, 1fr); }
         .gallery { grid-template-columns: 1fr; }
         .gallery figure, .gallery figure:first-child, .gallery figure:nth-child(2) { grid-column: auto; grid-row: auto; min-height: 260px; }
       }
@@ -127,19 +150,91 @@
         .brand span:last-child { display: none; }
         .call-small { display: none; }
         .hero { padding-top: 46px; gap: 28px; }
-        .facts, .services { grid-template-columns: 1fr; }
+        .facts, .services, .faq { grid-template-columns: 1fr; }
         .button { width: 100%; }
         .section-title { display: block; }
         .section-title p { margin-top: 12px; }
       }
     </style>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": ["LocalBusiness", "TaxiService"],
+            "@id": "https://taxi25-denia.vercel.app/#business",
+            "name": "Taxi 25 Denia",
+            "url": "https://taxi25-denia.vercel.app/",
+            "telephone": "+34615626618",
+            "image": "https://taxi25-denia.vercel.app/assets/taxi25-denia-road.jpg",
+            "logo": "https://taxi25-denia.vercel.app/assets/logo.svg",
+            "priceRange": "€€",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Calle Cándida Carbonell, 5",
+              "postalCode": "03700",
+              "addressLocality": "Dénia",
+              "addressRegion": "Alicante",
+              "addressCountry": "ES"
+            },
+            "areaServed": [
+              { "@type": "City", "name": "Dénia" },
+              { "@type": "AdministrativeArea", "name": "Marina Alta" },
+              { "@type": "Place", "name": "Puerto de Dénia" },
+              { "@type": "Airport", "name": "Alicante Airport" },
+              { "@type": "Airport", "name": "Valencia Airport" }
+            ],
+            "serviceType": [
+              "Taxi local en Dénia",
+              "Traslados al aeropuerto de Alicante",
+              "Traslados al aeropuerto de Valencia",
+              "Recogidas en puerto y ferry",
+              "Taxi en Marina Alta"
+            ],
+            "availableLanguage": ["es", "en", "de"],
+            "sameAs": [
+              "https://www.google.com/search?kgmid=/g/1hdzq5vnf&q=Taxi%20D%C3%A9nia%2025"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://taxi25-denia.vercel.app/#website",
+            "url": "https://taxi25-denia.vercel.app/",
+            "name": "Taxi 25 Denia",
+            "inLanguage": "es-ES",
+            "publisher": { "@id": "https://taxi25-denia.vercel.app/#business" }
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://taxi25-denia.vercel.app/#faq",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "¿Cómo reservo Taxi 25 Denia?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Llama o manda WhatsApp al 615 62 66 18 con tu ubicación, destino y hora." }
+              },
+              {
+                "@type": "Question",
+                "name": "¿Taxi 25 Denia hace traslados al aeropuerto?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Sí. Taxi 25 Denia hace traslados a los aeropuertos de Alicante y Valencia con reserva previa." }
+              },
+              {
+                "@type": "Question",
+                "name": "¿Dónde trabaja Taxi 25 Denia?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Taxi 25 Denia trabaja en Dénia, Marina Alta, puerto, hoteles, playas y pueblos cercanos." }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <header>
       <nav class="wrap" aria-label="Navegación principal">
         <a class="brand" href="#top" aria-label="Taxi 25 Denia inicio">
-          <span class="mark">25</span>
-          <span>Taxi 25 Denia</span>
+          <img class="mark" src="/assets/logo.svg" alt="" width="46" height="46" />
+          <span class="brand-word"><span>Taxi 25 Denia</span><small>Taxi local</small></span>
         </a>
         <div class="nav-right">
           <div class="lang" aria-label="Idioma">
@@ -156,8 +251,8 @@
       <section class="hero wrap">
         <div>
           <span class="kicker"><span class="dot"></span><span data-i18n="kicker">Taxi local en Dénia, Alicante</span></span>
-          <h1 data-i18n="hero.title">Taxi 25 Denia. Directo y local.</h1>
-          <p class="lead" data-i18n="hero.lead">Para moverte por Dénia, la Marina Alta, el puerto y los aeropuertos de Alicante o Valencia. Llama o escribe por WhatsApp y reserva sin vueltas.</p>
+          <h1 data-i18n="hero.title">Taxi local en Dénia. Sin centralita.</h1>
+          <p class="lead" data-i18n="hero.lead">Dénia, la Marina Alta, el puerto y traslados a los aeropuertos de Alicante y Valencia. Llama o escribe por WhatsApp y te recogemos.</p>
           <div class="actions" aria-label="Contacto">
             <a class="button primary" href="tel:+34615626618" data-i18n="cta.call">Llamar al 615 62 66 18</a>
             <a class="button whatsapp" href="https://wa.me/34615626618" data-i18n="cta.whatsapp">WhatsApp</a>
@@ -172,8 +267,8 @@
         <div class="photo-card" aria-label="Taxi 25 Denia">
           <img src="/assets/taxi25-denia-road.jpg" alt="Taxi 25 Denia en la Marina Alta" />
           <div class="float-card">
-            <b data-i18n="photo.title">Sin centralita. Sin vueltas.</b>
-            <span data-i18n="photo.text">Un taxi local para recogidas rápidas, traslados con hora y viajes al aeropuerto.</span>
+            <b data-i18n="photo.title">Trato directo, conductor de aquí.</b>
+            <span data-i18n="photo.text">Reservas con hora, recogidas en el momento y aeropuertos. Llama y listo.</span>
           </div>
         </div>
       </section>
@@ -181,7 +276,7 @@
       <section id="services" class="wrap">
         <div class="section-title">
           <h2 data-i18n="services.title">Servicios</h2>
-          <p data-i18n="services.intro">Lo importante está claro: dónde estás, adónde vas y a qué hora hay que estar allí.</p>
+          <p data-i18n="services.intro">Solo hace falta saber dónde recogerte y a qué hora tienes que llegar. El resto lo ponemos nosotros.</p>
         </div>
         <div class="services">
           <article class="service">
@@ -192,22 +287,27 @@
           <article class="service">
             <div class="icon">🛥️</div>
             <h3 data-i18n="service.two.title">Puerto y ferry</h3>
-            <p data-i18n="service.two.text">Llegadas, salidas y conexiones con el ferry o la marina.</p>
+            <p data-i18n="service.two.text">Llegadas, salidas y conexiones con el ferry y la marina.</p>
           </article>
           <article class="service">
             <div class="icon">✈️</div>
             <h3 data-i18n="service.three.title">Aeropuertos</h3>
-            <p data-i18n="service.three.text">Alicante y Valencia con hora cerrada y margen suficiente.</p>
+            <p data-i18n="service.three.text">Alicante y Valencia, con hora pactada y margen para el vuelo.</p>
           </article>
           <article class="service">
             <div class="icon">🌙</div>
             <h3 data-i18n="service.four.title">Noches y eventos</h3>
-            <p data-i18n="service.four.text">Cenas, hoteles, fiestas y vuelta a casa cuando toca.</p>
+            <p data-i18n="service.four.text">Cenas, bodas, fiestas y la vuelta a casa a la hora que sea.</p>
           </article>
         </div>
+        <p class="seo-note" data-i18n="services.note">Taxi 25 Denia trabaja en Dénia y alrededores: centro, puerto, estación, hoteles, Las Marinas, Las Rotas y trayectos por la Marina Alta.</p>
       </section>
 
       <section class="wrap" aria-label="Fotos de Dénia">
+        <div class="section-title">
+          <h2 data-i18n="gallery.title">Dénia, donde trabajamos.</h2>
+          <p data-i18n="gallery.intro">Centro histórico, puerto, playas y el castillo. Nuestro patio trasero.</p>
+        </div>
         <div class="gallery">
           <figure><img src="/assets/taxi25-denia-road.jpg" alt="Taxi 25 Denia en carretera local" /></figure>
           <figure><img src="/assets/taxi25-denia-airport.jpg" alt="Taxi 25 Denia en el aeropuerto" /></figure>
@@ -217,9 +317,30 @@
         </div>
       </section>
 
+      <section class="wrap" aria-label="Preguntas frecuentes">
+        <div class="section-title">
+          <h2 data-i18n="faq.title">Información rápida</h2>
+          <p data-i18n="faq.intro">Lo que suele importar antes de pedir un taxi.</p>
+        </div>
+        <div class="faq">
+          <article>
+            <h3 data-i18n="faq.one.title">¿Cómo reservo?</h3>
+            <p data-i18n="faq.one.text">Llama o manda WhatsApp al 615 62 66 18 con tu ubicación, destino y hora.</p>
+          </article>
+          <article>
+            <h3 data-i18n="faq.two.title">¿Hacen aeropuertos?</h3>
+            <p data-i18n="faq.two.text">Sí. Traslados a Alicante y Valencia con reserva previa.</p>
+          </article>
+          <article>
+            <h3 data-i18n="faq.three.title">¿Dónde trabajan?</h3>
+            <p data-i18n="faq.three.text">Dénia, Marina Alta, puerto, hoteles, playas y pueblos cercanos.</p>
+          </article>
+        </div>
+      </section>
+
       <section id="contact" class="wrap contact">
         <div class="contact-card">
-          <span class="kicker"><span class="dot"></span><span data-i18n="contact.kicker">Llama o manda WhatsApp</span></span>
+          <span class="kicker"><span class="dot"></span><span data-i18n="contact.kicker">Llama o escribe por WhatsApp</span></span>
           <a class="phone-big" href="tel:+34615626618">615 62 66 18</a>
           <div class="actions">
             <a class="button primary" href="tel:+34615626618" data-i18n="contact.call">Llamar ahora</a>
@@ -228,13 +349,13 @@
           <div class="contact-list">
             <div><strong>Taxi 25 Denia</strong></div>
             <div>Calle Cándida Carbonell, 5, 03700 Dénia, Alicante</div>
-            <div data-i18n="contact.area">Dénia, Marina Alta y traslados a los aeropuertos de Alicante y Valencia.</div>
+            <div data-i18n="contact.area">Dénia y la Marina Alta. Traslados a los aeropuertos de Alicante y Valencia.</div>
           </div>
         </div>
         <div class="map-card">
           <div>
             <h2 data-i18n="map.title">Base en Dénia.</h2>
-            <p data-i18n="map.text">Cerca del centro, el puerto, hoteles y puntos habituales de recogida.</p>
+            <p data-i18n="map.text">A un paso del centro, el puerto y los hoteles. Recogemos donde nos digas.</p>
           </div>
           <a class="button secondary" href="https://www.google.com/maps/search/?api=1&query=Calle%20Candida%20Carbonell%205%2C%2003700%20Denia%2C%20Alicante" target="_blank" rel="noreferrer" data-i18n="map.cta">Abrir mapa</a>
         </div>
@@ -252,8 +373,8 @@
         es: {
           'nav.call': 'Llamar',
           kicker: 'Taxi local en Dénia, Alicante',
-          'hero.title': 'Taxi 25 Denia. Directo y local.',
-          'hero.lead': 'Para moverte por Dénia, la Marina Alta, el puerto y los aeropuertos de Alicante o Valencia. Llama o escribe por WhatsApp y reserva sin vueltas.',
+          'hero.title': 'Taxi local en Dénia. Sin centralita.',
+          'hero.lead': 'Dénia, la Marina Alta, el puerto y traslados a los aeropuertos de Alicante y Valencia. Llama o escribe por WhatsApp y te recogemos.',
           'cta.call': 'Llamar al 615 62 66 18',
           'cta.whatsapp': 'WhatsApp',
           'cta.map': 'Abrir mapa',
@@ -261,32 +382,43 @@
           'fact.area': 'Zona',
           'fact.areaValue': 'Dénia y Marina Alta',
           'fact.address': 'Dirección',
-          'photo.title': 'Sin centralita. Sin vueltas.',
-          'photo.text': 'Para moverte por Dénia, el puerto, hoteles, restaurantes, playas y traslados al aeropuerto.',
+          'photo.title': 'Trato directo, conductor de aquí.',
+          'photo.text': 'Reservas con hora, recogidas en el momento y aeropuertos. Llama y listo.',
           'services.title': 'Servicios',
-          'services.intro': 'Lo importante está claro: dónde estás, adónde vas y a qué hora hay que estar allí.',
+          'services.intro': 'Solo hace falta saber dónde recogerte y a qué hora tienes que llegar. El resto lo ponemos nosotros.',
+          'services.note': 'Taxi 25 Denia trabaja en Dénia y alrededores: centro, puerto, estación, hoteles, Las Marinas, Las Rotas y trayectos por la Marina Alta.',
           'service.one.title': 'Ciudad y playas',
           'service.one.text': 'Centro, Las Marinas, Las Rotas, hoteles, restaurantes y playas.',
           'service.two.title': 'Puerto y ferry',
-          'service.two.text': 'Llegadas, salidas y conexiones con el ferry o la marina.',
+          'service.two.text': 'Llegadas, salidas y conexiones con el ferry y la marina.',
           'service.three.title': 'Aeropuertos',
-          'service.three.text': 'Alicante y Valencia con hora cerrada y margen suficiente.',
+          'service.three.text': 'Alicante y Valencia, con hora pactada y margen para el vuelo.',
           'service.four.title': 'Noches y eventos',
-          'service.four.text': 'Cenas, hoteles, fiestas y vuelta a casa cuando toca.',
-          'contact.kicker': 'Llama o manda WhatsApp',
+          'service.four.text': 'Cenas, bodas, fiestas y la vuelta a casa a la hora que sea.',
+          'gallery.title': 'Dénia, donde trabajamos.',
+          'gallery.intro': 'Centro histórico, puerto, playas y el castillo. Nuestro patio trasero.',
+          'faq.title': 'Información rápida',
+          'faq.intro': 'Lo que suele importar antes de pedir un taxi.',
+          'faq.one.title': '¿Cómo reservo?',
+          'faq.one.text': 'Llama o manda WhatsApp al 615 62 66 18 con tu ubicación, destino y hora.',
+          'faq.two.title': '¿Hacen aeropuertos?',
+          'faq.two.text': 'Sí. Traslados a Alicante y Valencia con reserva previa.',
+          'faq.three.title': '¿Dónde trabajan?',
+          'faq.three.text': 'Dénia, Marina Alta, puerto, hoteles, playas y pueblos cercanos.',
+          'contact.kicker': 'Llama o escribe por WhatsApp',
           'contact.call': 'Llamar ahora',
           'contact.whatsapp': 'WhatsApp',
-          'contact.area': 'Dénia, Marina Alta y traslados a los aeropuertos de Alicante y Valencia.',
+          'contact.area': 'Dénia y la Marina Alta. Traslados a los aeropuertos de Alicante y Valencia.',
           'map.title': 'Base en Dénia.',
-          'map.text': 'Cerca del centro, el puerto, hoteles y puntos habituales de recogida.',
+          'map.text': 'A un paso del centro, el puerto y los hoteles. Recogemos donde nos digas.',
           'map.cta': 'Abrir mapa',
           'footer.credit': 'Fotos: Taxi 25 Denia y Wikimedia Commons.'
         },
         en: {
           'nav.call': 'Call',
           kicker: 'Local taxi in Dénia, Alicante',
-          'hero.title': 'Taxi 25 Denia. Local and direct.',
-          'hero.lead': 'For Dénia, the Marina Alta, the port and airport transfers to Alicante or Valencia. Call or WhatsApp and book without fuss.',
+          'hero.title': 'Local taxi in Dénia. No call centre.',
+          'hero.lead': 'Dénia, the Marina Alta, the port, and airport runs to Alicante or Valencia. Call or message on WhatsApp and we\'ll pick you up.',
           'cta.call': 'Call 615 62 66 18',
           'cta.whatsapp': 'WhatsApp',
           'cta.map': 'Open map',
@@ -294,32 +426,43 @@
           'fact.area': 'Area',
           'fact.areaValue': 'Dénia and Marina Alta',
           'fact.address': 'Address',
-          'photo.title': 'No call centre. No fuss.',
-          'photo.text': 'A local taxi for quick pickups, timed rides and airport transfers.',
+          'photo.title': 'Talk to the driver, not an app.',
+          'photo.text': 'Booked pickups, on-demand rides and airports. Ring us and it\'s sorted.',
           'services.title': 'Services',
-          'services.intro': 'The important part is simple: where you are, where you are going, and when you need to arrive.',
+          'services.intro': 'Tell us where to pick you up and when you need to be there. We handle the rest.',
+          'services.note': 'Taxi 25 Denia works in and around Dénia: town centre, port, station, hotels, Las Marinas, Las Rotas and trips across the Marina Alta.',
           'service.one.title': 'Town and beaches',
           'service.one.text': 'Town centre, Las Marinas, Las Rotas, hotels, restaurants and beaches.',
           'service.two.title': 'Port and ferry',
-          'service.two.text': 'Arrivals, departures and connections with the ferry or marina.',
+          'service.two.text': 'Arrivals, departures and connections to the ferry and the marina.',
           'service.three.title': 'Airports',
-          'service.three.text': 'Alicante and Valencia with a set pickup time and enough margin.',
-          'service.four.title': 'Evenings and events',
-          'service.four.text': 'Dinners, hotels, parties and the ride home when it is time.',
-          'contact.kicker': 'Call or send WhatsApp',
+          'service.three.text': 'Alicante and Valencia, agreed pickup time with room for your flight.',
+          'service.four.title': 'Nights and events',
+          'service.four.text': 'Dinners, weddings, parties and the ride home, whatever the hour.',
+          'gallery.title': 'Dénia, where we work.',
+          'gallery.intro': 'Old town, the port, the beaches and the castle. Our backyard.',
+          'faq.title': 'Quick information',
+          'faq.intro': 'What people usually need to know before booking a taxi.',
+          'faq.one.title': 'How do I book?',
+          'faq.one.text': 'Call or WhatsApp 615 62 66 18 with your pickup point, destination and time.',
+          'faq.two.title': 'Do you do airports?',
+          'faq.two.text': 'Yes. Alicante and Valencia airport transfers can be booked in advance.',
+          'faq.three.title': 'Where do you work?',
+          'faq.three.text': 'Dénia, Marina Alta, port, hotels, beaches and nearby towns.',
+          'contact.kicker': 'Call or message on WhatsApp',
           'contact.call': 'Call now',
           'contact.whatsapp': 'WhatsApp',
-          'contact.area': 'Dénia, Marina Alta and transfers to Alicante and Valencia airports.',
+          'contact.area': 'Dénia and the Marina Alta. Transfers to Alicante and Valencia airports.',
           'map.title': 'Based in Dénia.',
-          'map.text': 'Close to the centre, the port, hotels and regular pickup points.',
+          'map.text': 'A short hop from the centre, the port and the hotels. We pick you up wherever you are.',
           'map.cta': 'Open map',
           'footer.credit': 'Photos: Taxi 25 Denia and Wikimedia Commons.'
         },
         de: {
           'nav.call': 'Anrufen',
           kicker: 'Lokales Taxi in Dénia, Alicante',
-          'hero.title': 'Taxi 25 Denia. Lokal und direkt.',
-          'hero.lead': 'Für Dénia, die Marina Alta, den Hafen und Flughafentransfers nach Alicante oder Valencia. Anrufen oder per WhatsApp buchen.',
+          'hero.title': 'Lokales Taxi in Dénia. Ohne Zentrale.',
+          'hero.lead': 'Dénia, die Marina Alta, der Hafen und Transfers zu den Flughäfen Alicante und Valencia. Rufen Sie an oder schreiben Sie per WhatsApp, wir holen Sie ab.',
           'cta.call': '615 62 66 18 anrufen',
           'cta.whatsapp': 'WhatsApp',
           'cta.map': 'Karte öffnen',
@@ -327,29 +470,45 @@
           'fact.area': 'Gebiet',
           'fact.areaValue': 'Dénia und Marina Alta',
           'fact.address': 'Adresse',
-          'photo.title': 'Direkt buchen. Ohne Umwege.',
-          'photo.text': 'Ein lokales Taxi für schnelle Abholungen, Fahrten mit Uhrzeit und Flughafentransfers.',
+          'photo.title': 'Direkt zum Fahrer. Keine App, kein Callcenter.',
+          'photo.text': 'Vorbestellte Fahrten, Sofortfahrten und Flughäfen. Ein Anruf genügt.',
           'services.title': 'Leistungen',
-          'services.intro': 'Wichtig sind nur drei Dinge: wo Sie sind, wohin Sie möchten und wann Sie ankommen müssen.',
+          'services.intro': 'Sagen Sie uns, wo wir Sie abholen und wann Sie ankommen müssen. Den Rest übernehmen wir.',
+          'services.note': 'Taxi 25 Denia fährt in und um Dénia: Zentrum, Hafen, Bahnhof, Hotels, Las Marinas, Las Rotas und Strecken in der Marina Alta.',
           'service.one.title': 'Stadt und Strände',
           'service.one.text': 'Zentrum, Las Marinas, Las Rotas, Hotels, Restaurants und Strände.',
           'service.two.title': 'Hafen und Fähre',
-          'service.two.text': 'Ankunft, Abfahrt und Verbindungen zur Fähre oder Marina.',
+          'service.two.text': 'Ankunft, Abfahrt und Anschlüsse zur Fähre und zur Marina.',
           'service.three.title': 'Flughäfen',
-          'service.three.text': 'Alicante und Valencia mit fester Abholzeit und genug Puffer.',
+          'service.three.text': 'Alicante und Valencia, mit fester Abholzeit und genug Reserve für Ihren Flug.',
           'service.four.title': 'Abends und Events',
-          'service.four.text': 'Abendessen, Hotels, Feiern und die Heimfahrt, wenn es Zeit ist.',
-          'contact.kicker': 'Anrufen oder WhatsApp senden',
+          'service.four.text': 'Abendessen, Hochzeiten, Partys und die Heimfahrt, egal zu welcher Uhrzeit.',
+          'gallery.title': 'Dénia, unser Revier.',
+          'gallery.intro': 'Altstadt, Hafen, Strände und die Burg. Unser Hinterhof.',
+          'faq.title': 'Kurzinfo',
+          'faq.intro': 'Was vor der Taxibuchung meistens wichtig ist.',
+          'faq.one.title': 'Wie buche ich?',
+          'faq.one.text': 'Rufen Sie 615 62 66 18 an oder schreiben Sie per WhatsApp mit Abholort, Ziel und Uhrzeit.',
+          'faq.two.title': 'Fahren Sie zum Flughafen?',
+          'faq.two.text': 'Ja. Transfers nach Alicante und Valencia können vorab gebucht werden.',
+          'faq.three.title': 'Wo fahren Sie?',
+          'faq.three.text': 'Dénia, Marina Alta, Hafen, Hotels, Strände und nahe Orte.',
+          'contact.kicker': 'Anrufen oder per WhatsApp schreiben',
           'contact.call': 'Jetzt anrufen',
           'contact.whatsapp': 'WhatsApp',
-          'contact.area': 'Dénia, Marina Alta und Transfers zu den Flughäfen Alicante und Valencia.',
-          'map.title': 'In Dénia zuhause.',
-          'map.text': 'Nahe Zentrum, Hafen, Hotels und üblichen Abholpunkten.',
+          'contact.area': 'Dénia und die Marina Alta. Transfers zu den Flughäfen Alicante und Valencia.',
+          'map.title': 'Zuhause in Dénia.',
+          'map.text': 'Nah am Zentrum, am Hafen und an den Hotels. Wir holen Sie ab, wo Sie sind.',
           'map.cta': 'Karte öffnen',
           'footer.credit': 'Fotos: Taxi 25 Denia und Wikimedia Commons.'
         }
       };
       const buttons = document.querySelectorAll('[data-lang]');
+      const waPrefill = {
+        es: 'Hola, quería un taxi en Dénia. ¿Podéis?',
+        en: 'Hi, I\'d like a taxi in Dénia. Can you help?',
+        de: 'Hallo, ich bräuchte ein Taxi in Dénia. Geht das?'
+      };
       function setLang(lang) {
         const dict = copy[lang] || copy.es;
         document.documentElement.lang = lang;
@@ -357,12 +516,18 @@
           const key = el.dataset.i18n;
           if (dict[key]) el.textContent = dict[key];
         });
+        const waText = encodeURIComponent(waPrefill[lang] || waPrefill.es);
+        document.querySelectorAll('a[href^="https://wa.me/34615626618"]').forEach((a) => {
+          a.href = 'https://wa.me/34615626618?text=' + waText;
+        });
         buttons.forEach((button) => button.classList.toggle('active', button.dataset.lang === lang));
         localStorage.setItem('taxi25-lang', lang);
       }
       buttons.forEach((button) => button.addEventListener('click', () => setLang(button.dataset.lang)));
       document.getElementById('year').textContent = new Date().getFullYear();
-      setLang(localStorage.getItem('taxi25-lang') || 'es');
+      const params = new URLSearchParams(window.location.search);
+      const initialLang = ['es', 'en', 'de'].includes(params.get('lang')) ? params.get('lang') : (localStorage.getItem('taxi25-lang') || 'es');
+      setLang(initialLang);
     </script>
   </body>
 </html>
